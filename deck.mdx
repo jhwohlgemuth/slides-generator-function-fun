@@ -9,7 +9,254 @@ export const theme = vsDark;
 
 # Fun with Generator Functions
 
-You are using [MDX Deck](https://github.com/jxnblk/mdx-deck) and [Code Surfer](https://codesurfer.pomb.us)
+by [Jason Wohlgemuth](https://landr.me/jason) using [Code Surfer](https://codesurfer.pomb.us)
+
+---
+
+<CodeSurfer>
+
+```js title="This is a generator function"
+function* iter(value) {
+    // code code code
+}
+```
+
+```js 1:7 subtitle="insert example code"
+function* iter(value) {
+    yield 'one';
+    yield 'two';
+    yield value;
+    yield* ['one', 'two', 'three'];
+    return 'a value';
+}
+```
+
+```js 1 subtitle="* not a footnote"
+function* iter(value) {
+    yield 'one';
+    yield 'two';
+    yield value;
+    yield* ['one', 'two', 'three'];
+    return 'a value';
+}
+```
+
+```diff 2:3 subtitle="yield values one at a time"
+```
+
+```diff 1,4 subtitle="yield a passed parameter"
+```
+
+```diff 5 subtitle="yield an iterable"
+```
+
+```diff 6 subtitle="return (yield) a value"
+```
+
+```js
+//TODO: use generator functions
+```
+
+</CodeSurfer>
+
+___
+
+<CodeSurferColumns themes={[vsDark, github]}>
+
+<Step>
+
+```js
+function* iter(value) {
+    yield 'one';
+    yield 'two';
+    yield value;
+    yield ['a', 'b', 'c'];
+    yield* ['a', 'b', 'c'];
+}
+
+```
+
+```js 1
+
+const foo = iter('three');
+foo.next();
+foo.next();
+foo.next();
+foo.next();
+foo.next();
+foo.next();
+foo.next();
+foo.next();
+```
+
+</Step>
+
+<Step>
+
+```diff 1
+```
+
+```diff 2
+```
+
+</Step>
+
+<Step>
+
+```diff 2
+```
+
+```diff 3 subtitle="{value: 'one', done: false}"
+```
+
+</Step>
+
+<Step>
+
+
+```diff 3
+```
+
+```diff 4 subtitle="{value: 'two', done: false}"
+```
+
+</Step>
+
+<Step>
+
+
+```diff 4
+```
+
+```diff 5 subtitle="{value: 'three', done: false}"
+```
+
+</Step>
+
+<Step>
+
+
+```diff 5
+```
+
+```diff 6 subtitle="{value: ['a', 'b', 'c'], done: false}"
+```
+
+</Step>
+
+<Step>
+
+
+```diff 6
+```
+
+```diff 7 subtitle="{value: 'a', done: false}"
+```
+
+</Step>
+
+<Step>
+
+
+```diff 6
+```
+
+```diff 8 subtitle="{value: 'b', done: false}"
+```
+
+</Step>
+
+<Step>
+
+
+```diff 6
+```
+
+```diff 9 subtitle="{value: 'c', done: false}"
+```
+
+</Step>
+
+<Step>
+
+
+```diff 8
+```
+
+```diff 10 subtitle="{value: undefined, done: true}"
+```
+
+</Step>
+
+</CodeSurferColumns>
+
+---
+
+<CodeSurferColumns themes={[vsDark, github]}>
+
+<Step>
+
+```js
+function* iterWithReturn() {
+    yield 'What?!?';
+    return 'OK!!!'; 
+    yield 'Huh? I beg your pardon.';
+}
+
+```
+
+```js 1
+
+const john = iterWithReturn();
+john.next();
+john.next();
+john.next();
+```
+
+</Step>
+
+<Step>
+
+```diff 1
+```
+
+```diff 2
+```
+
+</Step>
+
+<Step>
+
+```diff 2
+```
+
+```diff 3 subtitle="{value: 'What?!?', done: false}"
+```
+
+</Step>
+
+<Step>
+
+```diff 3
+```
+
+```diff 4 subtitle="{value: 'OK!!!', done: true}"
+```
+
+</Step>
+
+<Step>
+
+```diff 6
+```
+
+```diff 5 subtitle="{value: undefined, done: true}"
+```
+
+</Step>
+
+
+</CodeSurferColumns>
 
 ---
 
