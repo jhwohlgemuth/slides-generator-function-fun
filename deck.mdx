@@ -1,11 +1,12 @@
+import {Image} from 'mdx-deck';
 import {
   CodeSurfer,
   CodeSurferColumns,
   Step,
 } from "code-surfer";
-import { github, vsDark } from "@code-surfer/themes";
-
-export const theme = vsDark;
+import { github, nightOwl } from "@code-surfer/themes";
+import {themes} from 'mdx-deck';
+export const theme = themes.yellow;
 
 # Fun with Generator Functions
 
@@ -13,7 +14,7 @@ by [Jason Wohlgemuth](https://landr.me/jason) using [Code Surfer](https://codesu
 
 ---
 
-<CodeSurfer>
+<CodeSurfer theme={nightOwl}>
 
 ```js title="This is a generator function"
 function* iter(value) {
@@ -21,7 +22,7 @@ function* iter(value) {
 }
 ```
 
-```js 1:7 subtitle="insert example code"
+```js 1:7
 function* iter(value) {
     yield 'one';
     yield 'two';
@@ -54,14 +55,14 @@ function* iter(value) {
 ```
 
 ```js
-//TODO: use generator functions
+//TODO use generator functions
 ```
 
 </CodeSurfer>
 
 ___
 
-<CodeSurferColumns themes={[vsDark, github]}>
+<CodeSurferColumns themes={[nightOwl, github]}>
 
 <Step>
 
@@ -96,7 +97,7 @@ foo.next();
 ```diff 1
 ```
 
-```diff 2
+```diff 2 subtitle="Generator {  }"
 ```
 
 </Step>
@@ -125,10 +126,10 @@ foo.next();
 <Step>
 
 
-```diff 4
+```diff 1[16:20],4
 ```
 
-```diff 5 subtitle="{value: 'three', done: false}"
+```diff 2[18:24],5 subtitle="{value: 'three', done: false}"
 ```
 
 </Step>
@@ -147,7 +148,7 @@ foo.next();
 <Step>
 
 
-```diff 6
+```diff 6[5:10,13:15]
 ```
 
 ```diff 7 subtitle="{value: 'a', done: false}"
@@ -158,7 +159,7 @@ foo.next();
 <Step>
 
 
-```diff 6
+```diff 6[5:10,17:20]
 ```
 
 ```diff 8 subtitle="{value: 'b', done: false}"
@@ -169,10 +170,10 @@ foo.next();
 <Step>
 
 
-```diff 6
+```diff 6[5:10,23:26]
 ```
 
-```diff 9 subtitle="{value: 'c', done: false}"
+```diff 9 subtitle="{value: 'c', done: true}"
 ```
 
 </Step>
@@ -180,7 +181,7 @@ foo.next();
 <Step>
 
 
-```diff 8
+```diff 9
 ```
 
 ```diff 10 subtitle="{value: undefined, done: true}"
@@ -192,15 +193,30 @@ foo.next();
 
 ---
 
-<CodeSurferColumns themes={[vsDark, github]}>
+<CodeSurfer>
+
+```js
+//TODO use generator functions
+```
+
+```js
+//TODO use generator functions
+//TODO use generator functions with return
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurferColumns themes={[nightOwl, github]}>
 
 <Step>
 
 ```js
-function* iterWithReturn() {
+function* iter() {
     yield 'What?!?';
     return 'OK!!!'; 
-    yield 'Huh? I beg your pardon.';
+    yield 'Huh?';
 }
 
 ```
@@ -262,131 +278,91 @@ john.next();
 
 <CodeSurfer>
 
-```js title="This is a title" subtitle="and this a subtitle"
-function lorem(ipsum, dolor = 1) {
-  const sit = ipsum == null ? 0 : ipsum.sit;
-  dolor = sit - amet(dolor);
-  return sit
-    ? consectetur(ipsum, 0, dolor < 0 ? 0 : dolor)
-    : [];
-}
-
-function incididunt(ipsum, ut = 1) {
-  ut = labore.et(amet(ut), 0);
-  const sit = ipsum == null ? 0 : ipsum.sit;
-
-  if (!sit || ut < 1) {
-    return [];
-  }
-
-  let dolore = 0;
-  let magna = 0;
-  const aliqua = new eiusmod(labore.ut(sit / ut));
-
-  while (dolore < sit) {
-    aliqua[magna++] = consectetur(
-      ipsum,
-      dolore,
-      (dolore += ut)
-    );
-  }
-
-  return aliqua;
-}
+```js
+//TODO use generator functions
+//TODO use generator functions with return
 ```
 
 ```js
-function lorem(ipsum, dolor = 1) {
-  const sit = ipsum == null ? 0 : ipsum.sit;
-  dolor = sit - amet(dolor);
-  return sit
-    ? consectetur(ipsum, 0, dolor < 0 ? 0 : dolor)
-    : [];
-}
-
-function adipiscing(...elit) {
-  if (!elit.sit) {
-    return [];
-  }
-
-  const sed = elit[0];
-  return eiusmod.tempor(sed) ? sed : [sed];
-}
-
-function incididunt(ipsum, ut = 1) {
-  ut = labore.et(amet(ut), 0);
-  const sit = ipsum == null ? 0 : ipsum.sit;
-
-  if (!sit || ut < 1) {
-    return [];
-  }
-
-  let dolore = 0;
-  let magna = 0;
-  const aliqua = new eiusmod(labore.ut(sit / ut));
-
-  while (dolore < sit) {
-    aliqua[magna++] = consectetur(
-      ipsum,
-      dolore,
-      (dolore += ut)
-    );
-  }
-
-  return aliqua;
-}
-```
-
-```diff 1[10:14],2[15:19],3[22:27],10:12
-
+//TODO use generator functions
+//TODO use generator functions with return
+//TODO use generator functions with parameters
 ```
 
 </CodeSurfer>
 
 ---
 
-<CodeSurferColumns themes={[vsDark, github]}>
+<CodeSurferColumns themes={[nightOwl, github]}>
 
 <Step>
 
 ```js
-const magna = aliqua => aliqua.ut((enim, ad) => enim, 0);
+function* iter() {
+    // first next stops here
+    console.log(yield);
+    console.log(yield);
+    return yield;
+}
 ```
 
-```js
-const minim = (ad, enim) => dolore.magna(ad / enim);
+```js 1
+
+const foo = iter();
+foo.next(0);
+foo.next(1);
+foo.next(2);
+foo.next(3);
 ```
 
 </Step>
 
 <Step>
 
-```js
-const lorem = (ipsum, dolor, sit) => {
-  const amet = dolor - ipsum;
-  return consectetur.adipiscing(
-    {
-      elit: sed.eiusmod(sit - dolor) / amet + 2,
-    },
-    (tempor, incididunt) => ipsum + amet * incididunt
-  );
-};
-
-const magna = aliqua => aliqua.ut((enim, ad) => enim, 0);
+```diff 1
 ```
 
-```js
-const minim = (ad, enim) => dolore.magna(ad / enim);
+```diff 2
+```
 
-const sed = (eiusmod, tempor, incididunt) => {
-  const ut = tempor - eiusmod;
-  return labore.et(
-    {
-      amet: dolore.magna(incididunt - tempor) / ut + 2,
-    },
-    (aliqua, elit) => eiusmod + ut * elit
-  );
-};
+</Step>
+
+<Step>
+
+```diff 2
+```
+
+```diff 3 subtitle="{value: undefined, done: false}"
+```
+
+</Step>
+
+<Step>
+
+```diff 3
+```
+
+```diff 4 subtitle="{value: undefined, done: false}"
+```
+
+</Step>
+
+<Step>
+
+```diff 4
+```
+
+```diff 5 subtitle="{value: undefined, done: false}"
+```
+
+</Step>
+
+<Step>
+
+```diff 5
+```
+
+```diff 6 subtitle="{value: 3, done: true}"
 ```
 
 </Step>
@@ -395,5 +371,327 @@ const sed = (eiusmod, tempor, incididunt) => {
 
 ---
 
-docs:  
-[codesurfer.pomb.us](https://codesurfer.pomb.us)
+<CodeSurferColumns themes={[nightOwl, github]}>
+
+<Step>
+
+```js
+function* iter() {
+    // first next stops here
+    const sum = yield + yield;
+    return sum;
+}
+```
+
+```js 1
+
+const calc = add();
+calc.next();
+calc.next(40);
+calc.next(2);
+```
+
+</Step>
+
+<Step>
+
+```diff 3 subtitle="FAIL"
+```
+
+```diff 1
+```
+
+</Step>
+
+<Step>
+
+```js
+function* iter() {
+    // first next stops here
+    const sum = (yield) + (yield);
+    return sum;
+}
+```
+
+```diff 1
+```
+
+</Step>
+
+<Step>
+
+```js 1
+function* iter() {
+    // first next stops here
+    const sum = (yield) + (yield);
+    return sum;
+}
+```
+
+```diff 2 subtitle="Generator {  }"
+```
+
+</Step>
+
+<Step>
+
+```diff 2
+```
+
+```diff 3 title="start" subtitle="{value: undefined, done: false}"
+```
+
+</Step>
+
+<Step>
+
+```diff 3[17:23]
+```
+
+```diff 4 title="add 40" subtitle="{value: undefined, done: false}"
+```
+
+</Step>
+
+<Step>
+
+```diff 3[26:33],4
+```
+
+```diff 5 title="add 2, return result" subtitle="{value: 42, done: true}"
+```
+
+</Step>
+
+</CodeSurferColumns>
+
+---
+
+<CodeSurfer>
+
+```js
+//TODO use generator functions
+//TODO use generator functions with return
+//TODO use generator functions with parameters
+```
+
+```js
+//TODO use generator functions
+//TODO use generator functions with return
+//TODO use generator functions with parameters
+//TODO use generator functions as object property
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```js title="This is a function as an object property"
+const foo = {
+    iter() {
+        // code code code
+    }
+};
+```
+
+```js 1:5 title="This is a generator function as an object property"
+const foo = {
+    *iter() {
+        // code code code
+    }
+};
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
+```js
+//TODO use generator functions
+//TODO use generator functions with return
+//TODO use generator functions with parameters
+//TODO use generator functions as object property
+```
+
+```js
+//TODO use generator functions
+//TODO use generator functions with return
+//TODO use generator functions with parameters
+//TODO use generator functions as object property
+//TODO use generator functions as computed property
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```js
+const iter = {
+    *[Symbol.iterator]() {
+        yield 1;
+        yield 2;
+        yield 3;
+    }
+};
+```
+
+```diff 2 title="implement the @@iterator method"
+```
+
+```js subtitle="[1, 2, 3]"
+const iter = {
+    *[Symbol.iterator]() {
+        yield 1;
+        yield 2;
+        yield 3;
+    }
+};
+
+const easy = [...iter];
+console.log(easy);
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
+```js
+//TODO use generator functions
+//TODO use generator functions with return
+//TODO use generator functions with parameters
+//TODO use generator functions as object property
+//TODO use generator functions as computed property
+```
+
+```js
+//TODO use generator functions
+//TODO use generator functions with return
+//TODO use generator functions with parameters
+//TODO use generator functions as object property
+//TODO use generator functions as computed property
+//TODO use generator functions in real life
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```js title="Real world example"
+function* seq(start, stop) {
+    let index = start;
+    while (index <= stop) {
+        yield index++;
+    }
+}
+```
+
+```js 1:7 title="Real world example"
+function* seq(...args) {
+    const [start, stop] = args;
+    let index = stop ? start : 0;
+    while (index <= (stop || start)) {
+        yield index++;
+    }
+}
+```
+
+```diff 1
+```
+
+```diff 2
+```
+
+```diff 3
+```
+
+```diff 4
+```
+
+```js subtitle="[3, 4, 5, 6, 7]"
+function* seq(...args) {
+    const [start, stop] = args;
+    let index = stop ? start : 0;
+    while (index <= (stop || start)) {
+        yield index++;
+    }
+}
+
+const numbers = [...seq(3, 7)];
+console.log(numbers);
+```
+
+```js subtitle="{value: undefined, done: true}"
+function* seq(...args) {
+    const [start, stop] = args;
+    let index = stop ? start : 0;
+    while (index <= (stop || start)) {
+        yield index++;
+    }
+}
+
+const range = seq(5);
+const numbers = [...range];
+console.log(range.next());
+```
+
+```js subtitle="[0, 1, 2, 3, 4, 5]"
+function* seq(...args) {
+    const [start, stop] = args;
+    let index = stop ? start : 0;
+    while (index <= (stop || start)) {
+        yield index++;
+    }
+}
+
+const range = seq(5);
+const numbers = [...range];
+console.log(range.next());
+console.log(numbers);
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer theme={nightOwl}>
+
+```js title="Another real world example"
+const toArray = val => [...val[Symbol.iterator]()];
+```
+
+```diff 1[31:47] subtitle="ordinary function, or generator function???"
+```
+
+```js title="turns strings into arrays" subtitle="['a', 'b', 'c']"
+const toArray = val => [...val[Symbol.iterator]()];
+
+toArray('abc');
+```
+
+```js title="...and acts like identity for arrays!" subtitle="['a', 'b', 'c']"
+const toArray = val => [...val[Symbol.iterator]()];
+
+toArray('abc');
+
+toArray(['a', 'b', 'c']);
+```
+
+</CodeSurfer>
+
+---
+
+## References
+- [ECMAScript Language Specification](http://www.ecma-international.org/ecma-262/6.0/#sec-generator-function-definitions)
+- [MDN Docs for function*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*)
+- [Breaking Chains with Pipelines in JavaScript](https://www.wix.engineering/post/breaking-chains-with-pipelines-in-modern-javascript)
+- [JavaScript Iterators and Generators: Synchronous Generators](https://dev.to/jfet97/javascript-iterators-and-generators-synchronous-generators-3ai4)
