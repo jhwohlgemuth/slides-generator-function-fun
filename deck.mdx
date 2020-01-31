@@ -97,7 +97,7 @@ foo.next();
 ```diff 1
 ```
 
-```diff 2 subtitle="Generator {  }"
+```diff 2 title="Instantiate the generator" subtitle="Generator {  }"
 ```
 
 </Step>
@@ -256,7 +256,7 @@ john.next();
 ```diff 3
 ```
 
-```diff 4 subtitle="{value: 'OK!!!', done: true}"
+```diff 4 title="return completes generator" subtitle="{value: 'OK!!!', done: true}"
 ```
 
 </Step>
@@ -332,7 +332,7 @@ foo.next(3);
 ```diff 2
 ```
 
-```diff 3 subtitle="{value: undefined, done: false}"
+```diff 3 title="start" subtitle="{value: undefined, done: false}"
 ```
 
 </Step>
@@ -342,7 +342,7 @@ foo.next(3);
 ```diff 3
 ```
 
-```diff 4 subtitle="{value: undefined, done: false}"
+```diff 4 title="console.log(1)" subtitle="{value: undefined, done: false}"
 ```
 
 </Step>
@@ -352,7 +352,7 @@ foo.next(3);
 ```diff 4
 ```
 
-```diff 5 subtitle="{value: undefined, done: false}"
+```diff 5 title="console.log(2)" subtitle="{value: undefined, done: false}"
 ```
 
 </Step>
@@ -405,7 +405,7 @@ calc.next(2);
 
 <Step>
 
-```js
+```js title="add parentheses"
 function* iter() {
     // first next stops here
     const sum = (yield) + (yield);
@@ -428,7 +428,7 @@ function* iter() {
 }
 ```
 
-```diff 2 subtitle="Generator {  }"
+```diff 2 title="Instantiate the generator" subtitle="Generator {  }"
 ```
 
 </Step>
